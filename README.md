@@ -22,3 +22,21 @@ Book notes: "How Linux Works"
 
 - [The Jargon File](http://www.catb.org/jargon/html/)
 - (25 table 2-2) command line keystrokes
+
+- search for a man page by keyword with `man -k keyword`
+- manual pages are sorted into sections based on what the package is used for
+
+- `tr` is translation not trim
+    ```sh
+    head /proc/cpuinfo  | tr a-z A-Z
+    ```
+
+```sh
+ls /fffff > f
+
+# redirect stdout and stderr (2 is the stream id) 
+ls /fffff > f 2> e
+
+# redirect stderr to the same place as stdout
+ls /fffff > f 2>&1
+```
