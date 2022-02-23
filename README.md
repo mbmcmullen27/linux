@@ -40,3 +40,15 @@ ls /fffff > f 2> e
 # redirect stderr to the same place as stdout
 ls /fffff > f 2>&1
 ```
+
+### Chapter 3 - Devices
+
+```sh
+# print device information
+udevadm info --query=all --name=/dev/sda
+```
+
+```sh
+# copies a single 1,024-byte block from /dev/zero (a continuous stream of zero bytes) to new_file
+dd if=/dev/zero of=new_file bs=1024 count=1
+```
