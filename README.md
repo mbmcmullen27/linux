@@ -52,3 +52,5 @@ udevadm info --query=all --name=/dev/sda
 # copies a single 1,024-byte block from /dev/zero (a continuous stream of zero bytes) to new_file
 dd if=/dev/zero of=new_file bs=1024 count=1
 ```
+- (51) dd option format is based on an old IBM job control language (JCL) style
+- (52) [considering storage devices /dev/sd*] the sd portion of the name stands for SCSI disk. _Small Computer System Interface_ 
