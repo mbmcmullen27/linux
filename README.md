@@ -28,10 +28,12 @@ Book notes: "How Linux Works"
 
 - `tr` is translation not trim
     ```sh
+    # converts characters to uppercase
     head /proc/cpuinfo  | tr a-z A-Z
     ```
 
 ```sh
+# redirect stdout to a file 'f'
 ls /fffff > f
 
 # redirect stdout and stderr (2 is the stream id) 
