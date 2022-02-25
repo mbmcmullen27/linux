@@ -56,3 +56,9 @@ dd if=/dev/zero of=new_file bs=1024 count=1
 ```
 - (51) dd option format is based on an old IBM job control language (JCL) style
 - (52) [considering storage devices /dev/sd*] the sd portion of the name stands for SCSI disk. _Small Computer System Interface_ 
+
+### Chapter 4  - Disks and Filesystems
+
+- (76) exercise 4.1.3 - Creating a Partition Table
+- (82) list 4.2.1 - Filesystem Types
+    - (83) "At the time of this writing, Btrfs is the default for one major Linux distribution. If this proves a success, it's likely that Btrfs will be poised to replace the Extended series [ext2-4]."
