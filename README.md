@@ -62,3 +62,15 @@ dd if=/dev/zero of=new_file bs=1024 count=1
 - (76) exercise 4.1.3 - Creating a Partition Table
 - (82) list 4.2.1 - Filesystem Types
     - (83) "At the time of this writing, Btrfs is the default for one major Linux distribution. If this proves a success, it's likely that Btrfs will be poised to replace the Extended series [ext2-4]."
+
+- (87) "There is a difference between Unix and DOS text files, principally in how lines end [...] There have been many attempts at automatic conversion at the filesystem level, but these are always problematic."
+
+- on (88) there is an example fstab file that mounts an iso9660 filesystem from a cdrom. Is it possible to mount iso's that are already on disk? is that what is happening in a container?
+- (91) "Aside from hardware problemms, filesystem errors are usually due to a user shutting down the system in a rude way (for example, by pulling out the power cord.)"
+
+```sh
+# initialize an empty file as swap and add it to the swap pool
+dd if=/dev/zero of=swap_file bs=1024k count=num_mb
+mkswap swap_file
+swapon swap_file
+```
