@@ -74,3 +74,6 @@ dd if=/dev/zero of=swap_file bs=1024k count=num_mb
 mkswap swap_file
 swapon swap_file
 ```
+
+- (97) The LVM example here is an Ubuntu VM that already has LVM installed and configured. According to [Arch Wiki](https://wiki.archlinux.org/title/LVM) the package to install is lvm2, but I suspect the actual configuring of LVM is much more involvedy
+    - (102) Constructing a Logical Volume System
