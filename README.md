@@ -75,5 +75,11 @@ mkswap swap_file
 swapon swap_file
 ```
 
-- (97) The LVM example here is an Ubuntu VM that already has LVM installed and configured. According to [Arch Wiki](https://wiki.archlinux.org/title/LVM) the package to install is lvm2, but I suspect the actual configuring of LVM is much more involvedy
+- (97) The LVM example here is an Ubuntu VM that already has LVM installed and configured. According to [Arch Wiki](https://wiki.archlinux.org/title/LVM) the package to install is lvm2, but I suspect the actual configuring of LVM is much more involved
     - (102) Constructing a Logical Volume System
+
+- where /dev/sdb1 is a physical volume
+    ```sh
+    # print LVM header on a PV
+    dd if=/dev/sdb1 count=1000 | strings | less
+    ```    
