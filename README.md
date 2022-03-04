@@ -83,3 +83,10 @@ swapon swap_file
     # print LVM header on a PV
     dd if=/dev/sdb1 count=1000 | strings | less
     ```    
+- (113) 4.6.1 inode details
+    ```sh
+    # view inode numbers for any directory
+    ls -i
+    ```
+    - "A hard link is just a manually created entry in a directory to an inode that already exists"
+    - (114) "when you check a filesystem, as described ini Section 4.2.11, the `fsck` program walks through the inode table and directory sttructure to generate new link counts and a new block allocation map (such as the block bitmap), and then compares the newly generated data with the filesystem on the disk."
