@@ -90,3 +90,32 @@ swapon swap_file
     ```
     - "A hard link is just a manually created entry in a directory to an inode that already exists"
     - (114) "when you check a filesystem, as described ini Section 4.2.11, the `fsck` program walks through the inode table and directory sttructure to generate new link counts and a new block allocation map (such as the block bitmap), and then compares the newly generated data with the filesystem on the disk."
+
+### Chapter 5 - How The Linux Kernel Boots
+
+- (117) A simplified view of the boot process looks like this:
+    1. The machine's BIOS or boot firmware loads and runs a boot loader
+    2. The boot loader finds the kernel image on disk, loads it into memory, and starts it.
+    3. The kernel initializes the devices and its drivers.
+    4. The kernel mounts the root filesystem.
+    5. The kernel starts a program called _init_ with process ID of 1. This point is the _user space_ start.
+    6. init sets the rest of the system processes in motion.
+    7. At some point, init starts a process allowing you to log in, usually at the end or near thee end of the boot sequence.
+
+- (119) Upon startup, the Linux kernel initializes in this general order:
+    1. CPU inspection
+    2. Memory inspection
+    3. Device bus discovery
+    4. Device discovery
+    5. Auxiliary kernal subsystem setup (networking and the like)
+    6. Root filesystem mount
+    7. User space start
+
+```sh
+# view kernel boot parameters
+cat /proc/cmdline
+```
+- see bootparam(7) man page or reference file kernel-params.txt for an overview on available boot params
+- (122) A boot loader's core functionality includes the ability to do the following [...] Select from multiple kernels
+    - when would this be necessary? 
+    - does this mean you can use different linux distributions on the same system without re-partitioning?
