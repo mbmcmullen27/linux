@@ -119,3 +119,14 @@ cat /proc/cmdline
 - (122) A boot loader's core functionality includes the ability to do the following [...] Select from multiple kernels
     - when would this be necessary? 
     - does this mean you can use different linux distributions on the same system without re-partitioning?
+
+- (132) UEFI makes it releatively easy to support loading other operating systems because you can install multiple boot loaders in the EFI partition [...] you may still have an individual partition with an MBR-style boot loadder [...] Instead of configuring and running a Linux kernel, GRUB can load and run a different boot loader on a specific partition on your disk; this is called _chainloading_
+    ```sh
+    menuentry "DOS" {
+        insmod chain
+        insmod fat
+        set root=(hdo,3)
+        chainloader /io.sys
+    }
+    ```
+    - ^^ Grub's configs look a lot like Hashicorp's HCL
