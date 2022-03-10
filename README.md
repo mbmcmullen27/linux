@@ -130,3 +130,14 @@ cat /proc/cmdline
     }
     ```
     - ^^ Grub's configs look a lot like Hashicorp's HCL
+
+### Chapter 6 - How User Space Starts
+
+- (140) One way that systemd is more ambitious than previous versions of init is that it doesn't joust operate on processes and services; it can also manage filesystem mounts, mmonitor neetwork connection requests, run timers, and more
+    - Each capability is called a unit
+    - Unit types:
+        - **Service Units:** Control the service daemons found on a Unix system.
+        - **Target Units:** Control other units, usually by grouping them.
+        - **Socket Units:** Represent incoming network connection request locations.
+        - **Mount Units:** Represent the attachment of filesystems to the system.
+- View systemd dependency graph with `systemd-analyze dot`
