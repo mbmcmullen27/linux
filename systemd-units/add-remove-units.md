@@ -25,8 +25,23 @@ systemctl status test1.target test2.target
 
 - (147) If your unit file has an \[Install\] section, you need to "enable" the unit before activating it
     ```sh
-    systemctl enable unit
+    # create unit files using an Install section
+    cat <<EOF > test1.target
+    [Unit]
+    Description=test 1
+    [Install]
+    WantedBy=test2.target
+    EOF
+
+    cat <<EOF > test2.target
+    [Unit]
+    Description=test 2
+    EOF
+
+    # enable
+    systemctl enable test1.target
     ``` 
+    - enabling a unit does not activate it
 
 ### Remove Units
 
@@ -38,7 +53,7 @@ systemctl stop test1.target
 
 - (147) If the unit has an \[Install\] section, disable the unit to remove any symbolic links created by the dependency system
     ```sh
-    systemctl disable unit
+    systemctl disable test1.target
     ```
 
 ```sh

@@ -140,4 +140,11 @@ cat /proc/cmdline
         - **Target Units:** Control other units, usually by grouping them.
         - **Socket Units:** Represent incoming network connection request locations.
         - **Mount Units:** Represent the attachment of filesystems to the system.
-- View systemd dependency graph with `systemd-analyze dot`
+- View systemd dependency graph with `Systemd-analyze dot`
+- (150) you can use several _conditional dependency_ parameters to test various operating system states rather than systemd unitts. For example:
+    condition|effect
+    ---|---
+    ConditionPathExists=p        |  True if the (file) path exists in the filesystem
+    ConditionPathIsDirectory=p   |  True if _p_ is a directory
+    ConditionFileNotEmpty=p      |  True if _p_ is a file and it's not zero-length
+    - if you activate a unit that has a conditional dependency and some unit dependencies, systemd attempts to activate those unit dependencies regardless of wheteher the condition is true or false
