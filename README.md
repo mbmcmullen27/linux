@@ -3,17 +3,11 @@ Book notes: "How Linux Works"
 
 
 ### Chapter 1 - The Big picture
-- (page 4)
-    
-    Because it's common to refer to the state in abstract terms rather than to the actual bits, the term _image_ refers to a particular physical arrangement of bits.
+- (4) Because it's common to refer to the state in abstract terms rather than to the actual bits, the term _image_ refers to a particular physical arrangement of bits.
 
-- (page 5)
+- (5) [The kernel] runs _between_ process time slices during a context switch.
 
-    [The kernel] runs _between_ process time slices during a context switch.
-
-- (page 7)
-
-    Other than init, all new user processes on a Linux system start as a result of fork()
+- (7) Other than init, all new user processes on a Linux system start as a result of fork()
 
 ### Chapter 2 - Basic Commands and Directory Hierarchy
 - `echo *` has the same output as `ls`
@@ -75,8 +69,8 @@ mkswap swap_file
 swapon swap_file
 ```
 
-- (97) The LVM example here is an Ubuntu VM that already has LVM installed and configured. According to [Arch Wiki](https://wiki.archlinux.org/title/LVM) the package to install is lvm2, but I suspect the actual configuring of LVM is much more involved
-    - (102) Constructing a Logical Volume System
+- (see 97) The LVM example here is an Ubuntu VM that already has LVM installed and configured. According to [Arch Wiki](https://wiki.archlinux.org/title/LVM) the package to install is lvm2, but I suspect the actual configuring of LVM is much more involved
+    - (see 102) Constructing a Logical Volume System
 
 - where /dev/sdb1 is a physical volume
     ```sh
@@ -133,6 +127,8 @@ cat /proc/cmdline
 
 ### Chapter 6 - How User Space Starts
 
+#### Systemd
+
 - (140) One way that systemd is more ambitious than previous versions of init is that it doesn't joust operate on processes and services; it can also manage filesystem mounts, mmonitor neetwork connection requests, run timers, and more
     - Each capability is called a unit
     - Unit types:
@@ -148,3 +144,9 @@ cat /proc/cmdline
     ConditionPathIsDirectory=p   |  True if _p_ is a directory
     ConditionFileNotEmpty=p      |  True if _p_ is a file and it's not zero-length
     - if you activate a unit that has a conditional dependency and some unit dependencies, systemd attempts to activate those unit dependencies regardless of wheteher the condition is true or false
+
+#### System V init
+- uncommon in most modern distros
+- (160) The mechanism that System V init uses to run the init.d scripts has found its way into many Linux systems, regardlesss of whether they use System V init.
+    - `run-parts --help` 
+    - can be used to run all scripts in a file that match a regex pattern
