@@ -150,3 +150,11 @@ cat /proc/cmdline
 - (160) The mechanism that System V init uses to run the init.d scripts has found its way into many Linux systems, regardlesss of whether they use System V init.
     - `run-parts --help` 
     - can be used to run all scripts in a file that match a regex pattern
+
+### Chapter 7 - System Configuration: Logging, System Time, Batch Jobs, and Users
+
+#### journald
+- search journalctl for a specific unit: `journalctl  -U cron.service`
+- list units in the journal: `journalctl -F _SYSTEMD_UNIT`
+- list available fields: `journalctl -N`
+- filter by boot with offset 1 (last boot): `journalctl -b -1`
