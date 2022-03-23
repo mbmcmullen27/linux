@@ -158,3 +158,7 @@ cat /proc/cmdline
 - list units in the journal: `journalctl -F _SYSTEMD_UNIT`
 - list available fields: `journalctl -N`
 - filter by boot with offset 1 (last boot): `journalctl -b -1`
+
+#### cron
+- /etc/crontab is a system wide cron table where you need to specify the user to run as
+    - `crontab -e` edits only the executing user's table

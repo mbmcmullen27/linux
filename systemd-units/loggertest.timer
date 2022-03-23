@@ -1,0 +1,10 @@
+[unit]
+Description=Example timer unit
+
+[Timer]
+OnCalendar=*-*-* *:00,20,40
+Unit=loggertest.service
+
+[Install]
+WantedBy=timers.target
+
