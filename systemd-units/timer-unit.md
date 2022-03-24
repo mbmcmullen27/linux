@@ -1,4 +1,13 @@
 ```sh
 # copy unit files to system configuration directory 
-cp loggertest.timer loggertest.service /etc/systemd/system/
+sudo cp loggertest.* /etc/systemd/system/
+
+# enable the timer
+systemctl enable loggertest.timer
+
+# start the service
+systemctl start loggertest
+
+# view status
+systemctl status loggertest
 ```

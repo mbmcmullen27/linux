@@ -3,4 +3,4 @@ Description=Example Test service
 
 [Service]
 Type=oneshot
-Exec=/user/bin/logger -p local3.debug I\'m a logger
+ExecStart=/usr/bin/logger -p local3.debug I\'m a logger

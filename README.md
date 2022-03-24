@@ -162,3 +162,5 @@ cat /proc/cmdline
 #### cron
 - /etc/crontab is a system wide cron table where you need to specify the user to run as
     - `crontab -e` edits only the executing user's table
+
+- (187) The cron utility is one of the oldest components of a Linux system; it's bveen around for decades (predating Linux itself)
