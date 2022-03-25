@@ -164,3 +164,8 @@ cat /proc/cmdline
     - `crontab -e` edits only the executing user's table
 
 - (187) The cron utility is one of the oldest components of a Linux system; it's bveen around for decades (predating Linux itself)
+
+#### systemd equivalent to `at`
+```sh
+systemd-run --on-calendar='2022-08-14 18:00' /bin/echo this is a test
+```
