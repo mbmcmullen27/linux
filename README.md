@@ -169,3 +169,10 @@ cat /proc/cmdline
 ```sh
 systemd-run --on-calendar='2022-08-14 18:00' /bin/echo this is a test
 ```
+- can also use `--on-active=30m` for 30 minutes in the future
+- (188) systemd has a user manager associated with a logged-in user, and this is necessary to run timer units. You can tell systemd to keep the user manager around after you log out with this command: `loginctl enable-linger`
+
+#### user authentication
+- (192) you can move away fro using /etc/passwd for uyour users and use a network service such as LDAP instead by changing only the system configuration
+    - I always assumed LDAP worked like SSO, and a user would be created on the target system if it existed on the LDAP server but not the target system, but this seems to suggest you don't use the native login service to authenticate at all?
+    - does using a network auth service mean I can't login to my system if I don't have network connectivity? Even if I've logged in in the past?
