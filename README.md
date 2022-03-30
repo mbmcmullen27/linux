@@ -176,3 +176,14 @@ systemd-run --on-calendar='2022-08-14 18:00' /bin/echo this is a test
 - (192) you can move away fro using /etc/passwd for uyour users and use a network service such as LDAP instead by changing only the system configuration
     - I always assumed LDAP worked like SSO, and a user would be created on the target system if it existed on the LDAP server but not the target system, but this seems to suggest you don't use the native login service to authenticate at all?
     - does using a network auth service mean I can't login to my system if I don't have network connectivity? Even if I've logged in in the past?
+
+### Chapter 8 - A Closer Look At Processes and Resource Utilization
+- (208) The keernel adds the nice value to the current priority to determine the next time slot for the process
+    - change the nice value with renice `renice 20 <pid>`    
+
+```sh
+# view page faults in a running process
+ps -o pid,min_flt,maj_flt <pid>
+```
+
+- `vmstat 2` for I/O and memory use statistics
