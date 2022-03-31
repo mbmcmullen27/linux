@@ -187,3 +187,16 @@ ps -o pid,min_flt,maj_flt <pid>
 ```
 
 - `vmstat 2` for I/O and memory use statistics
+
+#### cgroups
+- (217) There are two versions of cgroups, 1 and 2 and unfortunately, both are currently in use and can be configured simultaneously on a system
+```sh
+# list the shell's cgroups
+cat /proc/self/cgroup
+
+# view example cgroup fs
+ls /sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope
+
+# add a process to a cgroup
+sudo echo pid > cgroup.procs
+```
