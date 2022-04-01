@@ -199,4 +199,9 @@ ls /sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope
 
 # add a process to a cgroup
 sudo echo pid > cgroup.procs
+
+# view cpu utilization of a cgroup
+cat cpu.stat
 ```
+
+### Chapter 9 - Understanding Your Network and Its Configuration
