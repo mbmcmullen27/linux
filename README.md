@@ -205,3 +205,15 @@ cat cpu.stat
 ```
 
 ### Chapter 9 - Understanding Your Network and Its Configuration
+
+#### Ethernet
+- (236) devices on an Ethernet network send messages in frames, which are wrappers around the data sent. Aframe contains the origin and destination MAC addresses
+- Frames can't leave a physical Etherenet network without a bridge to take data out of one frame, repackage it, and send it to a host on a different physical network
+
+- (236) network interfaces usually have names that indicate the kind of hardware underneath, such as _enp0s31f6_ (an interface in a PCI slot)
+    - a name like this is called a _predictable network interface device name_
+
+```sh
+# send traffic to 192.168.45.0/24 through a router at 10.23.2.44
+ip route add 192.168.45.0/24 via 10.23.2.44 
+```
