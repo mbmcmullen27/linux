@@ -217,3 +217,17 @@ cat cpu.stat
 # send traffic to 192.168.45.0/24 through a router at 10.23.2.44
 ip route add 192.168.45.0/24 via 10.23.2.44 
 ```
+
+#### DNS
+- (245) \[...\] this is part of the idea behind zero-configuration name service systems such as Multicast DNS (mDNS) and Link Local Multicast Name Resolution (LLMNR). If a process wants to find a host by name on the local netowrk, it just broadcasts a request over the network; if present, the target host replies with its address
+    - resolving dns without a nameserver could be useful in the homelab
+
+```sh
+# check current DNS settings
+resolvectl status
+```
+
+- FURTHER READING: _DNS and BIND_, 5th edition, by Cricket Liu and Paul Albitz
+
+#### localhost
+- (247) The _lo_ interface is a virtual network interface called the _loopback_ because it "loops back" to itself. \[...\] When outgoing data to localhost reaches the kernel network interface for _lo_, the kernel just repackages it as incoming data and sends it back through _lo_, for use by any server program that's listening
