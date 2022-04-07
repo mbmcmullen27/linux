@@ -231,3 +231,11 @@ resolvectl status
 
 #### localhost
 - (247) The _lo_ interface is a virtual network interface called the _loopback_ because it "loops back" to itself. \[...\] When outgoing data to localhost reaches the kernel network interface for _lo_, the kernel just repackages it as incoming data and sends it back through _lo_, for use by any server program that's listening
+
+#### tcp
+```sh
+# well known port numbers
+cat /etc/services
+```
+- [Internet Assigned Numbers Authority](www.iana.org)
+- (250) only the superuser can use ports 1-1023, also known as system or privileged ports
