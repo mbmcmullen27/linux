@@ -239,3 +239,12 @@ cat /etc/services
 ```
 - [Internet Assigned Numbers Authority](www.iana.org)
 - (250) only the superuser can use ports 1-1023, also known as system or privileged ports
+
+#### DHCP
+- (253) Upon startup, dhclient stores its process ID in /var/run/dhclient.pid and its lease information in `/var/lib/dhcp/dhclient.leases`
+    - Inspecting `/var/run` I can see the docker.pid and sshd.pid and the docker.sock
+    - Seems its common practice to dump a pid into this directory, I wonder what the intended use of these is, async bash seems tricky
+        - When are pids assigned? How do I read my pid if I'm a running process? Do subshells get a separate pid?
+- (253) The IETF took advantage of the large IPv6 address space to devise a new way of network configuration that does not require a central server. This is called _stateless configuration_
+
+- **(254) Section 9.21** Configuring Linux as a Router
