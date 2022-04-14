@@ -247,4 +247,36 @@ cat /etc/services
         - When are pids assigned? How do I read my pid if I'm a running process? Do subshells get a separate pid?
 - (253) The IETF took advantage of the large IPv6 address space to devise a new way of network configuration that does not require a central server. This is called _stateless configuration_
 
-- **(254) Section 9.21** Configuring Linux as a Router
+**(254) Section 9.21** Configuring Linux as a Router
+
+#### Network Address Translation (IP Masquerading) - NAT
+- (257) Hosts on the privateee network need no special configuration the router is their default gateway \[...\]
+    1. A host on the internal private network wants to make a connection to the outside world, so it sends its connection request packets through the router.
+    2. The router intercepts the connection request packet rather than passing it out to the internet (where it would get lost bcause the public internet knows nothing about private networks).
+    3. The router determines the destination of the connection request packet and opens its own connection to the destination.
+    4. When the router obtains the connection, it fakes a "connection established" message back to the original internal host.
+    5. The router is now the middleman between the internal host and the destination. The destination knows nothing about the internal host; the connection on the remote host looks like it came from the router.
+
+- NAT works on the internet and transport layer, packets need to be examined to determine tcp and udp port numbers
+
+- to setup a NAT router on a linux machine you must enable:
+    1. network packet filtering ("firewall support")
+    2. connection tracking
+    3. iptables support
+    4. full NAT
+    5. MASQUERADE target support
+
+- Example iptables commands for internal network enp0s2 sharing an external connection at enp0s31f6 (257)
+
+    ```sh
+    sysctl -w net.ipv4.ip_forward=1
+    iptables -P FORWARD DROP
+    iptables -t nat -A POSTROUTING -o enp0s31f6 -j MASQUERADE
+    iptables -A FORWARD -i enp0s31f6 -o enp0s2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+    IPTABLES -A FORWARD -i enp0s2 -o enp0s31f6 -j ACCEPT
+    ```
+
+- (258) Nat \[...\] is essentially a hack that extends the lifetime of the IPv4 address space. IPv6 does not need NAT, thanks to tis larger and more sophisticated address space
+
+#### Routers and Linux
+- (258) Linksys, was required to release the source code for its software under the terms of the license of one of its components, and soon specialized linux distributions such as OpenWRT appeared for routers. (The "WRT" in these names came from the Linksys model number.)
