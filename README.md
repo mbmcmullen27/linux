@@ -280,3 +280,39 @@ cat /etc/services
 
 #### Routers and Linux
 - (258) Linksys, was required to release the source code for its software under the terms of the license of one of its components, and soon specialized linux distributions such as OpenWRT appeared for routers. (The "WRT" in these names came from the Linksys model number.)
+
+```sh
+# show iptables
+iptables -L
+
+# set DROP policy on FORWARD chain
+iptables -P FORWARD DROP
+
+# DROP all packets from host 192.168.34.63
+iptables -A INPUT -s 192.168.34.63 -j DROP
+
+# DROP all packets from subnet 192.168.34.0/24 coming into port 25
+iptables -A INPUT -s 192.168.34.0/24 -p tcp --destination-port 25 -j DROP
+
+# delete the third rule and reinsert it at the top of the chain
+iptables -D INPUT 3
+iptables -I INPUT -s 192.168.34.37 -j ACCEPT
+
+# example INPUT chain for ssh host 
+# ACCEPT icmp connections (for ping and other utilities)
+# ACCEPT connections from 10.1.0.0/16 subnet and localhost
+# ACCEPT any non-SYN packet (block  connections)
+# ACCEPT UDP connections from DNS server
+# ACCEPT ssh connections from anywhere
+iptables -P INPUT DROP
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A INPUT -s 127.0.0.1 -j ACCEPT
+iptables -A INPUT -s 10.1.0.0/16 -j ACCEPT
+iptables -A INPUT -p tcp '!' --syn -j ACCEPT
+iptables -A INPUT -p udp --source-port 53 -s [nameserver_addr] -j ACCEPT
+iptables -A INPUT -p tcp --destination-port 22 -j ACCEPT
+```
+
+- _ARP_ - Address Resolution Protocol
+- (264) A host using Ethernet as its physical layer and IP as the network layer...
+    - Does that mean there alternatives to IP at the network layer?
