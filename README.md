@@ -316,3 +316,6 @@ iptables -A INPUT -p tcp --destination-port 22 -j ACCEPT
 - _ARP_ - Address Resolution Protocol
 - (264) A host using Ethernet as its physical layer and IP as the network layer...
     - Does that mean there alternatives to IP at the network layer?
+
+- (267) **iw** 9.27.1
+- _WPA_ - Wifi Protected Access
