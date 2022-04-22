@@ -319,3 +319,21 @@ iptables -A INPUT -p tcp --destination-port 22 -j ACCEPT
 
 - (267) **iw** 9.27.1
 - _WPA_ - Wifi Protected Access
+
+### Chapter 10 Network Applications and Services
+
+- example telnet request
+```sh
+telnet example.org 80
+GET / HTTP/1.1
+Host: example.org
+# enter twice
+
+```
+
+- example curl request
+```sh
+curl --trace-ascii trace_file http://www.example.org/
+```
+
+- ssh_config has an opition `X11Forwarding` that enable X Window System client tunneling
