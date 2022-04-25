@@ -337,3 +337,10 @@ curl --trace-ascii trace_file http://www.example.org/
 ```
 
 - ssh_config has an opition `X11Forwarding` that enable X Window System client tunneling
+
+```sh
+# copy dir to remote host
+tar zcvf - dir | ssh remote_host tar zxvf - 
+```
+#### Diagnostic tools
+- `lsof -iTCP -sTCP:LISTEN` to show processes listening on tcp ports
