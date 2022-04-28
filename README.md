@@ -342,5 +342,12 @@ curl --trace-ascii trace_file http://www.example.org/
 # copy dir to remote host
 tar zcvf - dir | ssh remote_host tar zxvf - 
 ```
-#### Diagnostic tools
+#### Diagnostic Tools
 - `lsof -iTCP -sTCP:LISTEN` to show processes listening on tcp ports
+- `tcpdump` puts your network interface card into _promiscuous mode_ and reports on every packet that comes accross
+- `nmap` for port scanning
+
+#### Security Resources
+- (the SANS institute)[http://www.sans.org/]
+- (The CERT Division of Carnegie Mellon's Software Engineering Institute)[http://www.cert.org/)]
+- (Nmap and other tools)[http://www.insecure.org/]
