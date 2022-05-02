@@ -320,7 +320,7 @@ iptables -A INPUT -p tcp --destination-port 22 -j ACCEPT
 - (267) **iw** 9.27.1
 - _WPA_ - Wifi Protected Access
 
-### Chapter 10 Network Applications and Services
+### Chapter 10 - Network Applications and Services
 
 - example telnet request
 ```sh
@@ -348,6 +348,50 @@ tar zcvf - dir | ssh remote_host tar zxvf -
 - `nmap` for port scanning
 
 #### Security Resources
-- (the SANS institute)[http://www.sans.org/]
-- (The CERT Division of Carnegie Mellon's Software Engineering Institute)[http://www.cert.org/)]
-- (Nmap and other tools)[http://www.insecure.org/]
+- [the SANS institute](http://www.sans.org/)
+- [The CERT Division of Carnegie Mellon's Software Engineering Institute](http://www.cert.org/)
+- [Nmap and other tools](http://www.insecure.org/)
+
+### Chapter 11 - Introduction to Shell Scripts
+
+- Special vars
+    - `$#` : number of arguments
+    - `$@` : all arguments
+    - `$$` : process id
+    - `$?` : exit code
+
+```sh
+# check for empty argument
+if [ "$1" = hi ]; then
+if [ x"$1" = x"hi" ]; then
+```
+
+```sh
+# use grep as a conditional
+if grep -q daemon /etc/passwd; then
+    echo The daemon user is in the password file
+fi
+```
+
+
+(302) File Type Operators
+|Operator|Tests for|
+|---|---|
+|-f|Regular file|
+|-d|Directory|
+|-h|Symbolic link|
+|-b|Block device|
+|-c|Character device|
+|-p|Named pipe|
+|-s|Socket|
+
+
+(303) File Permission Operators
+|Operator|Permission|
+|---|---|
+|-r|Readable|
+|-w|Writeable|
+|-x|Executable|
+|-u|Setuid|
+|-g|Setguid|
+|-k|"Sticky"|
