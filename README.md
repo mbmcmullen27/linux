@@ -373,7 +373,6 @@ if grep -q daemon /etc/passwd; then
 fi
 ```
 
-
 (302) File Type Operators
 |Operator|Tests for|
 |---|---|
@@ -395,3 +394,44 @@ fi
 |-u|Setuid|
 |-g|Setguid|
 |-k|"Sticky"|
+
+- bash case statement can do pattern matching
+- I knew about *) but didn't realize it could do full patterns
+- (304)
+    ```sh
+    case $1 in
+        bye)
+            echo Fine, bye.
+            ;;
+        hi|hello)
+            echo Nice to see you.
+            ;;
+        what*)
+            echo Whatever.
+            ;;
+        *)
+            echo 'Huh?'
+            ;;
+    esac
+    ```
+
+- (305) while loop with grep
+    ```sh
+    #!/bin/sh
+    FILE=/tmp/whiletest.$$;
+    echo firstline > $FILE
+
+    while tail -10 $FILE | grep -q firstline; do
+        # add lines to $FILE until tail -10 $FILE no longer prints "firstline"
+        echo -n Number of lines in $FILE:' '
+        wc -l $FILE | awk '{print $1}'
+        echo newline >> $FILE
+    done
+
+    rm -f $FILE
+    ```
+    - the exit code of `grep -q firstline` is the test
+
+- Bash also has an until loop that will run until the conditon returns a zero exit code instead of a nonzero exit code
+
+- (306) "you shouldn't need to use the while and until loops very often. In fact, if you find that you need to use while, you should probably be using a language more appropriate to yourr task, such as Python or awk."
