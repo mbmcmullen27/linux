@@ -435,3 +435,18 @@ fi
 - Bash also has an until loop that will run until the conditon returns a zero exit code instead of a nonzero exit code
 
 - (306) "you shouldn't need to use the while and until loops very often. In fact, if you find that you need to use while, you should probably be using a language more appropriate to yourr task, such as Python or awk."
+
+- (306) tmpfile w/ trap (deletes tmpfiles when a CTRL+C interrupt signal is recieved)
+```sh
+#!/bin/sh
+TMPFILE1=$(mktemp /tmp/im1.XXXXXX)
+TMPFILE2=$(mktemp /tmp/im2.XXXXXX)
+trap "rm -f $TMPFILE1 $TMPFILE2; exit 1" INT
+
+cat /proc/interrupts > $TMPFILE1
+sleep 2
+cat /proc/interrupts > $TMPFILE2
+diff $TMPFILE1 $TMPFILE2
+rm -f $TMPFILE1 $TMPFILE2
+
+```
