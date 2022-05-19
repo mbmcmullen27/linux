@@ -450,3 +450,11 @@ diff $TMPFILE1 $TMPFILE2
 rm -f $TMPFILE1 $TMPFILE2
 
 ```
+
+### Chapter 12 - Network File Transfer and Sharing
+
+- (316) `python -m SimpleHTTPServer` starts a basic web server that makes the current directory available on port 8000 by default
+
+- (324) 12.4 Sharing Files with Samba
+    - Samba allows your network's Windows computers to get to your Linux system
+    - is this necesssary if instead you just use WSL?
