@@ -458,3 +458,11 @@ rm -f $TMPFILE1 $TMPFILE2
 - (324) 12.4 Sharing Files with Samba
     - Samba allows your network's Windows computers to get to your Linux system
     - is this necesssary if instead you just use WSL?
+
+### Chapter 13 - User Environments
+
+- (337) "Many users create a bin directory of thier own to store shell scripts and programs"
+    - why have I not done this?
+
+
+#### 13.3.3 The Prompt
