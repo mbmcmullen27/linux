@@ -464,5 +464,7 @@ rm -f $TMPFILE1 $TMPFILE2
 - (337) "Many users create a bin directory of thier own to store shell scripts and programs"
     - why have I not done this?
 
+- (339) "You can't change an environment variable with a shell script, because scripts run as subshells. (but you can instead define shell functions to perfom this task)
 
-#### 13.3.3 The Prompt
+- (341) "You also need a .bash_profile if you ever want to log in on the console or remotely,because those login shells don't ever bother with .bashrc"
+    - This can't be true can it? I only have functions in a bashrc and they definitely are run when I ssh
