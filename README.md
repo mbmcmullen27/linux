@@ -468,3 +468,15 @@ rm -f $TMPFILE1 $TMPFILE2
 
 - (341) "You also need a .bash_profile if you ever want to log in on the console or remotely,because those login shells don't ever bother with .bashrc"
     - This can't be true can it? I only have functions in a bashrc and they definitely are run when I ssh
+
+### Chapter 14 - A Brief Survey of the Linux Dektop and Printing
+- (348) "We'll aslo take a quick look at printing, as derkstop workstations often share a common printer"
+    - Feeling like nobody expected printers would ever go out of style
+
+
+#### Desktop Components (Xorg vs Wayland)
+- (348) _framebuffer_: a chunk of memory that graphics hardware reads and transmits to the screen for display
+- in Wayland windows have their own memory buffer and software called a _compositor_ combines them for the framebuffer
+- in X window system, the xserver handles requests to draw a window
+
+- (351) These two systems are not mutually exclusive. If your system uses Wayland, it is also probably running an X compatibility server. It's also possible to start a Wayland compositor inside X
