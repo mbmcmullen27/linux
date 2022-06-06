@@ -480,3 +480,5 @@ rm -f $TMPFILE1 $TMPFILE2
 - in X window system, the xserver handles requests to draw a window
 
 - (351) These two systems are not mutually exclusive. If your system uses Wayland, it is also probably running an X compatibility server. It's also possible to start a Wayland compositor inside X
+
+- (351) There's also a reference compositing window manager called Weston \[...\] Weston contains the necessary functionality of a compositor, but its not meant for use by the general public because it has a bare-bones interface. 
