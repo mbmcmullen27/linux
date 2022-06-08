@@ -472,6 +472,7 @@ rm -f $TMPFILE1 $TMPFILE2
 ### Chapter 14 - A Brief Survey of the Linux Dektop and Printing
 - (348) "We'll aslo take a quick look at printing, as derkstop workstations often share a common printer"
     - Feeling like nobody expected printers would ever go out of style
+    - they didn't (see 3d printers && pen plotters)
 
 
 #### Desktop Components (Xorg vs Wayland)
@@ -482,3 +483,10 @@ rm -f $TMPFILE1 $TMPFILE2
 - (351) These two systems are not mutually exclusive. If your system uses Wayland, it is also probably running an X compatibility server. It's also possible to start a Wayland compositor inside X
 
 - (351) There's also a reference compositing window manager called Weston \[...\] Weston contains the necessary functionality of a compositor, but its not meant for use by the general public because it has a bare-bones interface. 
+
+- (352) "the GNOME shell is a plug-in of Mutter, which is the compositing window manager used in the GNOME desktop environment. (Here, calling the GNOME shell a plug-in is just a fancy way of saying that it calls Mutter as a library)"
+
+- (352) `libinput list-devices` to see available input devices
+- (353) `libinput debug-events --show-keycodes` show captured kernel events
+
+- (355) "One feature of X is network transparency. Because clients talkt to the server using a protocol.l, it's possible to run clients across a network to a server running on a different machine directly over the network, with the X server listening for TCP connections on port 6000"
