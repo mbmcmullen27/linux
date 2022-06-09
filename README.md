@@ -490,3 +490,15 @@ rm -f $TMPFILE1 $TMPFILE2
 - (353) `libinput debug-events --show-keycodes` show captured kernel events
 
 - (355) "One feature of X is network transparency. Because clients talkt to the server using a protocol.l, it's possible to run clients across a network to a server running on a different machine directly over the network, with the X server listening for TCP connections on port 6000"
+
+- xorg utilites
+    - `xwininfo` get window information
+    - `xev` get xevent information
+    - `xinput --list` list input devices
+        - can also be used to change device related settings
+    - `xmodmap` or `XKB` to map keyboard layouts
+
+- `dbus-monitor --session` view dbus messages
+
+- (361) "PostScript is actually a programming language, so when you print a file using it, you're sending a program to the printer."
+    - you don't say?    
