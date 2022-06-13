@@ -502,3 +502,7 @@ rm -f $TMPFILE1 $TMPFILE2
 
 - (361) "PostScript is actually a programming language, so when you print a file using it, you're sending a program to the printer."
     - you don't say?    
+
+### Chapter 15 - Development Tools
+
+- `ld` is the linker program called by gcc
