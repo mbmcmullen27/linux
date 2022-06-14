@@ -506,3 +506,6 @@ rm -f $TMPFILE1 $TMPFILE2
 ### Chapter 15 - Development Tools
 
 - `ld` is the linker program called by gcc
+- /usr/lib is the default library location
+- use `-L` to specify nonstandard library locations
+    - ex: `cc -o badobject badobject.o -lcurses -L/usr/junk/lib -lcrud`
