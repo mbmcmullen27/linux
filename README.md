@@ -509,3 +509,7 @@ rm -f $TMPFILE1 $TMPFILE2
 - /usr/lib is the default library location
 - use `-L` to specify nonstandard library locations
     - ex: `cc -o badobject badobject.o -lcurses -L/usr/junk/lib -lcrud`
+- a library file ending in .a is a _static library_
+- a library file ending in .so is a _shared library_
+    - use `ldd` to list the shared objects an executable uses
+- `gcc -E` to run the preprocessor by itself
