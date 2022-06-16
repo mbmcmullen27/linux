@@ -505,6 +505,7 @@ rm -f $TMPFILE1 $TMPFILE2
 
 ### Chapter 15 - Development Tools
 
+#### C libraries
 - `ld` is the linker program called by gcc
 - /usr/lib is the default library location
 - use `-L` to specify nonstandard library locations
@@ -513,3 +514,34 @@ rm -f $TMPFILE1 $TMPFILE2
 - a library file ending in .so is a _shared library_
     - use `ldd` to list the shared objects an executable uses
 - `gcc -E` to run the preprocessor by itself
+
+#### Make
+- Make knows to look for a .c when you have a .o as a target
+    ```make
+    # object files
+    OBJ=aux.o main.o
+
+    all: myprog
+
+    myprog: $(OBJS)
+        $(CC) -o myprog $(OBJS)
+    ```
+- You can define a macro for make on the command line
+    ```sh
+    make CC=clang
+    ```
+- `make -n` print the commands for make without running them (dry-run)
+- see pg. 377 for a list of standard macros and variables
+
+#### Scripting Languages
+- the shebang syntax can be used for [any executable](./tail-script)
+    ```sh
+    #!/usr/bin/tail -2
+    This program won't print this line,
+    but it will print this line...
+    and this line, too.
+    ```
+
+- (381) "\[Javascript ...\] Most experienced programmers shun it as a standalone scripting language due to its many flaws,"
+    - Bite your tongue!
+    - Author says this about Javascript but suggests TCL, Emacs Lisp or PHP are acceptable alternatives. Go off, I guess! Pile on the JS hate wagon!
