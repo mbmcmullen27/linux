@@ -545,3 +545,18 @@ rm -f $TMPFILE1 $TMPFILE2
 - (381) "\[Javascript ...\] Most experienced programmers shun it as a standalone scripting language due to its many flaws,"
     - Bite your tongue!
     - Author says this about Javascript but suggests TCL, Emacs Lisp or PHP are acceptable alternatives. Go off, I guess! Pile on the JS hate wagon!
+
+### Chapter 16 - Introduction to Compiling Software from C Source Code
+
+- (385) "Most nonproprietary third-party Unix software packages come as source code that you can build and install."
+    - this has not been my experience
+
+- (386) steps to install a package from C source code
+    1. Unpack the source code archive.
+    2. Configure the package.
+    3. Run make or another build command to build the programs.
+    4. Run make install or a distribution-specific install command to install the package.
+
+#### GNU Autoconf
+- use autoconf to generate makefiles for different systems
+- to generate a Makefile from Makefile.in, run `./configure`
