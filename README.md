@@ -560,3 +560,11 @@ rm -f $TMPFILE1 $TMPFILE2
 #### GNU Autoconf
 - use autoconf to generate makefiles for different systems
 - to generate a Makefile from Makefile.in, run `./configure`
+- use `./configure --prefix=new_prefix` to specify an install directory
+- (390) by default, the install target from an autoconf-generated Makefile uses a _prefix_ of /usr/local -- that is, binary programs go in /user/local/bin, libraries go in /usr/lolcal/lib
+- use `make -n install` to do a dry run 
+
+#### pkg-config
+- used to advertise the locations of include files and libraries and to specify flags you need to compile and link a program
+- example: `pkg-config --libs zlib`
+- list known packages `pkg-config --list-all`
