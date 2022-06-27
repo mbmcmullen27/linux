@@ -568,3 +568,7 @@ rm -f $TMPFILE1 $TMPFILE2
 - used to advertise the locations of include files and libraries and to specify flags you need to compile and link a program
 - example: `pkg-config --libs zlib`
 - list known packages `pkg-config --list-all`
+
+### Chapter 17 - Virtualizatyion
+
+- (403) "In general, a virtual machine with its operating system is called a _guest_. The _host_ is whatever runs the hypervisor. For type 2 hypervisors, the host is just your native system. For type 1 hypervisors, the host is the hypervisor itself, possibly combined with a specialized companion system."
