@@ -569,6 +569,37 @@ rm -f $TMPFILE1 $TMPFILE2
 - example: `pkg-config --libs zlib`
 - list known packages `pkg-config --list-all`
 
-### Chapter 17 - Virtualizatyion
-
+### Chapter 17 - Virtualization
+- (402) "Overseeing one or more virtual machines on a computer is a piece of software called a _hypervisor_ or _virtual machine monitor_ (VMM)"
 - (403) "In general, a virtual machine with its operating system is called a _guest_. The _host_ is whatever runs the hypervisor. For type 2 hypervisors, the host is just your native system. For type 1 hypervisors, the host is the hypervisor itself, possibly combined with a specialized companion system."
+- (403) "Bypassing virtual hardware between the host and guest is known as _paravirtualization_"
+
+**RECOMENDED READING:** Jim Smith and Ravi Nair's _Virtual Machines: Versatile Platforms for Systems and Processes (Elsevier, 2005)
+
+#### Containers
+- (406) "One method of service isolation is using the chroot() system call to change the root directory to something other than the actual system root. A program can change its root \[...\] and no longer be able to access anything outside that directory. \[...\] This type of isolation is sometimes called _chroot jail_ because processess can't (normally) escape it."
+    - never knew this, how does chroot work in the context of installing a new OS? If I boot from a usb, why am I able to chroot into the machine?
+- (406) "... a _container_ can be loosely defined as a restricted runtime environment for a set of processes \[...\] in general, this is called _operating system-level virtualization_"
+
+- Features of a process running in a container:
+    - They have their own cgroups
+    - They have their own devices and filesystem
+    - They cannot see or interact with any other processes on the system
+    - They have their own network interfaces
+
+- "Docker requires a server to be running, podman does not"
+
+**RECOMENDED READING:** Nigel Poulton's _Docker Deep Dive_ (author, 2016)
+
+- (407) "you can think of an image as the container's filesystem \[...\] this is not quite accurate (in particular, when you change the files in a Docker container, you aren't making changes to the image)"
+
+- in a container process Ids start at 1, this is a "kernel feature used for containers: Linux kernel _namespaces_ specifically for process IDs. A process can create a whole new set of process IDs for itself and its childre, starrting at PID 1, and then they are able to see only those."
+
+- (410) "\[(in a running container)\] This is an _overlay filesystem_, a kernel feature that allows you to create a filesystem by combining existing directories as layers, with changes stored in a single spot. If you look on your host system, you'll see it (and  have access to the component directories)"
+
+- (411) This section on docker networking is worth rereading again
+
+- `python -m venv test-venv` to create a Python virtual environment in a directory called 'test-venv'
+    - to activate the virtual environment you need to source the 'test-venv/bin/activate' script `. test-env/bin/activate`
+    - run `deactivate` to exit the virtual environment
+    - this gives you  new, empty packages library, and anything new you install will go there instead of the main system library
